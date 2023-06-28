@@ -42,17 +42,15 @@ if (!empty($category_id)) {
     <div class="container mx-auto py-10">
         <div class="flex items-center mb-5">
             <a href="products.php" class="mr-3 text-blue-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
             </a>
-            <h1 class="text-3xl font-bold mb-5"><?php echo $categoryName; ?> - Category Page</h1>
+            <h1 class="text-3xl font-bold mb-5 mx-auto"><?php echo $categoryName; ?> Category Page</h1>
         </div>
 
-        <div class="flex items-center mb-5">
-            <span class="mr-3">Filter by Category:</span>
+        <div class="flex items-center mb-5 justify-center">
+            <span class="mr-3 ">Filter by Category:</span>
             <select id="categoryFilter" class="border border-gray-300 rounded-md p-2">
                 <option value="">All</option>
                 <?php
@@ -72,7 +70,7 @@ if (!empty($category_id)) {
             </select>
         </div>
 
-        <div class="flex justify-center w-[80%]">
+        <div class="flex justify-center w-full flex-wrap items-center gap-3">
             <?php
             // Construct the SQL query based on the selected category filter
             $productsQuery = "SELECT * FROM products";
@@ -91,8 +89,8 @@ if (!empty($category_id)) {
 
                 // Display product card
                 echo '
-                <div class="bg-white p-5 shadow-md rounded-md w-[300px]">
-                    <img src="../uploads/' . $productImage . '" alt="' . $productName . '" class="w-full mb-3">
+                <div class="bg-white p-5 shadow-md rounded-md" style="width: 400px;">
+                    <img  src="../uploads/' . $productImage . '" alt="' . $productName . '" class="w-full mb-3">
                     <h3 class="text-lg font-bold mb-2">' . $productName . '</h3>
                     <p class="text-gray-600">$' . $productPrice . '</p>
                     <a href="ProductDetails.php?id=' . $productId . '" class="block mt-4 bg-blue-500 text-white text-center py-2 rounded-md hover:bg-blue-600">View Details</a>
@@ -104,16 +102,16 @@ if (!empty($category_id)) {
     </div>
 
     <script>
-    // Add event listener to the category filter select element
-    var categoryFilter = document.getElementById('categoryFilter');
-    categoryFilter.addEventListener('change', function() {
-        var selectedCategoryId = categoryFilter.value;
-        var url = 'Categories.php';
-        if (selectedCategoryId) {
-            url += '?category_id=' + selectedCategoryId;
-        }
-        window.location.href = url;
-    });
+        // Add event listener to the category filter select element
+        var categoryFilter = document.getElementById('categoryFilter');
+        categoryFilter.addEventListener('change', function() {
+            var selectedCategoryId = categoryFilter.value;
+            var url = 'Categories.php';
+            if (selectedCategoryId) {
+                url += '?category_id=' + selectedCategoryId;
+            }
+            window.location.href = url;
+        });
     </script>
 </body>
 

@@ -44,16 +44,21 @@ if (!empty($productId)) {
     <div class="container mx-auto py-10 w-full">
         <div class="flex items-center mb-5">
             <a href="Categories.php" class="mr-3 text-blue-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
             </a>
-            <h1 class="text-3xl font-bold mb-5"><?php echo $productName; ?> - Product Details</h1>
+            <h1 class="text-3xl font-bold mb-5 mx-auto"><?php echo $productName; ?>Product Details</h1>
         </div>
 
-        <div class="flex flex-col w-full items-center">
-            <div class="w-500px">
-                <img src="../uploads/<?php echo $product['image'] ?? ''; ?>" alt="<?php echo $productName; ?>" class="w-full mb-3">
+        <div class="flex flex-col w-[300px] items-center">
+            <div class="w-full flex justify-center" style="width: 700px;">
+                <div class="w-full">
+                    <img src="../uploads/<?php echo $product['image'] ?? ''; ?>" alt="<?php echo $productName; ?>"
+                        class="w-full mb-3">
+                </div>
             </div>
             <div class="w-1/2 pl-10">
                 <h2 class="text-lg font-bold mb-3">Description</h2>
@@ -62,6 +67,7 @@ if (!empty($productId)) {
                 <p class="text-gray-600">$<?php echo $product['price'] ?? ''; ?></p>
             </div>
         </div>
+
     </div>
 </body>
 
